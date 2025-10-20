@@ -36,14 +36,15 @@ source file_name.sh
 ```
 
 ### ROS:
-'''bash
+```bash
 source /opt/ros/humble/setup.bash
-'''
+```
 
 ## Ros2 and isaacsim bridging:
 Isaacsim and ROS communicate using ROS Bridge package which is enabled by default. 
 You can always check its status: 
 Go to the extension manager menu Window > Extensions and search for ROS 2 bridge.
+<img src="assets/isaac_ros2_bridge.png" alt="UR10e Robot" width="400"/>
 
 Isaac_ros2_workspace:
 download the isaac_ros2 workspace from below and use its humble_ws folder as your ROS workspace (since I am using ROS2 humble)
