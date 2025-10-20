@@ -74,10 +74,13 @@ https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
 2) You need to create an ActionGrasp and configure a few things (I followed [this](https://youtu.be/pGje2slp6-s)).
 3) Run the simulation in Isaac_sim and check if it publish appropiate topics (state publisher and command subscription)
 4) Launch moveit2 along with rviz, ros2_control, topi_based_ros2_control (explained next)
+   ```bash
+   ros2 launch ur_moveit_config ur_moveit_isaac.launch.py ur_type:=ur10e use_fake_hardware:=false launch_rviz:=true
+   ```
 
 ## Customizing default Universal_Robots_ROS2_Driver
 This repository is the resultant modified Universal_Robots_ROS2_Driver package. The followings things are modified in the original package.
-## Moveit launch file
+### Moveit launch file
 To understand this, refer my code as an example and observe the changes done in moveit_launch file (ur_moveit.launch.py -> [ur_moveit_isaac.launch.py](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/main/ur_moveit_config/launch/ur_moveit_isaac.launch.py)):
 
 (1) [Add ros_control and related nodes](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/1cac8b1761db8b1842bdfb8f49f192ee4f67c4e4/ur_moveit_config/launch/ur_moveit_isaac.launch.py#L215C3-L264C6)
