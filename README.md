@@ -40,32 +40,34 @@ source file_name.sh
 source /opt/ros/humble/setup.bash
 ```
 
-## Ros2 and isaacsim bridging:
-Isaacsim and ROS communicate using ROS Bridge package which is enabled by default. 
+### Ros2 and isaacsim bridging:
+Make sure Isaacsim has enabled ROS Bridge package (enabled by default as such). 
 You can always check its status: 
 Go to the extension manager menu Window > Extensions and search for ROS 2 bridge.
 <img src="assets/isaac_ros2_bridge.png" />
 
-Isaac_ros2_workspace:
-download the isaac_ros2 workspace from below and use its humble_ws folder as your ROS workspace (since I am using ROS2 humble)
+### Isaac_ros2_workspace:
+Download the isaac_ros2 workspace from below and use its humble_ws folder as your ROS workspace (since I am using ROS2 humble)
 https://github.com/isaac-sim/IsaacSim-ros_workspaces/tree/IsaacSim-5.0.0
 
-Isaac-sim (in virtual env) and ROS (system) communicates using topic_based_ros2_control package
+### topic_based_ros2_control
+Isaac-sim (in virtual env) and ROS (system) communicates using [topic_based_ros2_control](https://github.com/PickNikRobotics/topic_based_ros2_control) package.
+Download it and move it to yout humble_ws/src folder.
 
 
-UR_ROS2 description and driver:
-Download the original official drivers from below links. You need to modify certain things to work it out with Isaac
+### UR_ROS2 description and driver:
+Download the original official drivers from below links and put them in humble_ws/src folder. You need to modify certain things to work it out with Isaac (explained later)
 https://github.com/UniversalRobots/Universal_Robots_ROS2_Description
 https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
 
 
-Building the humble_ws workspace:
+### Building the humble_ws workspace:
 1) cd to /humble_ws
 2) rosdep install --from-paths src --ignore-src -r -y
 3) colcon build --symlink-install
 4) source install/setup.bash   (you need to run this each time you open a new terminal)
 
-Overall workflow:
+### Overall workflow:
 1) Run isaac sim and load UR10.usd from (Top-left -> Create -> Robots -> Asset Browser)
 2) You need to create an ActionGrasp and configure a few things (I followed this (https://youtu.be/pGje2slp6-s))
 3) Run the simulation in Isaac_sim and check if it publish appropiate topics
