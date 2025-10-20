@@ -70,7 +70,7 @@ https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
 4) source install/setup.bash   (you need to run this each time you open a new terminal)
 
 ### Overall workflow:
-1) In a terminal, start the Isaac environment.
+1) In a terminal, start the [Isaac environment](### Isaac Sim Environment).
 2) Run isaac sim and load UR10.usd from (Top-left -> Create -> Robots -> Asset Browser)
 3) You need to create an ActionGrasp and configure a few things (I followed [this](https://youtu.be/pGje2slp6-s)).
 4) Run the simulation in Isaac_sim and check if it publish appropiate topics (state publisher and command subscription)
