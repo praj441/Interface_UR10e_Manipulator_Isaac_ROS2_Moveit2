@@ -131,7 +131,7 @@ Match the topic names here to the topic names in isaac simulator
                 <param name="trigger_joint_command_threshold">0.001</param>
                 <param name="sum_wrapped_joint_states">true</param>
       </hardware>
-bash
+```
 
 ### Demo
 <img src="assets/demo.gif" />
