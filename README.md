@@ -73,13 +73,65 @@ https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
 3) Run the simulation in Isaac_sim and check if it publish appropiate topics (state publisher and command subscription)
 4) Launch moveit2 along with rviz, ros2_control, topi_based_ros2_control (explained next)
 
-## Customizing default Moveit launch file
-
+## Customizing default Universal_Robots_ROS2_Driver
+This repository is the resultant modified Universal_Robots_ROS2_Driver package. The followings things are modified in the original package.
 ## Moveit launch file
 To understand this, refer my code as an example and observe the changes done in moveit_launch file (ur_moveit.launch.py -> [ur_moveit_isaac.launch.py](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/main/ur_moveit_config/launch/ur_moveit_isaac.launch.py)):
-.
-.
-.
+(1) Add ros_control and related nodes
+```bash
+  ros2_control_node = Node(
+        package="controller_manager",
+        executable="ros2_control_node",
+        parameters=[
+            robot_description,                           # URDF or xacro
+            PathJoinSubstitution([
+                FindPackageShare("ur_moveit_config"),
+                "config",
+                "ros2_controllers.yaml",
+            ]),
+        ],
+        output="screen",
+    )
 
-In progress...
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=[
+            "joint_state_broadcaster",
+            "--controller-manager",
+            "/controller_manager",
+        ],
+    )
+
+    ur_arm_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["ur_arm_controller", "-c", "/controller_manager"],
+    )
+
+
+    # Start the actual move_group node/action server
+    move_group_node = Node(
+        package="moveit_ros_move_group",
+        executable="move_group",
+        output="screen",
+        parameters=[
+            robot_description,
+            robot_description_semantic,
+            publish_robot_description_semantic,
+            robot_description_kinematics,
+            robot_description_planning,
+            ompl_planning_pipeline_config,
+            trajectory_execution,
+            moveit_controllers,
+            planning_scene_monitor_parameters,
+            {"use_sim_time": use_sim_time},
+            warehouse_ros_config,
+        ],
+    )
+```
+
+
+
+#### In progress...
 Stay Tuned...
