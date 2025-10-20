@@ -1,0 +1,39 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 50  # Hz
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    ur_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+# -------------------------
+# Controller parameters
+# -------------------------
+
+joint_state_broadcaster:
+  ros__parameters: {}
+
+ur_arm_controller:
+  ros__parameters:
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - elbow_joint
+      - wrist_1_joint
+      - wrist_2_joint
+      - wrist_3_joint
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+    # # Topics must match Isaac Sim’s ROS bridge configuration
+    # command_topic: /joint_commands
+    # state_topic: /joint_states
+    # action_ns: follow_joint_trajectory
