@@ -118,5 +118,17 @@ nodes_to_start = [move_group_node, rviz_node, servo_node, ros2_control_node, joi
 
 (3) Set [use_sim_time](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/1cac8b1761db8b1842bdfb8f49f192ee4f67c4e4/ur_moveit_config/launch/ur_moveit_isaac.launch.py#L410C14-L410C26) to true
 
-#### In progress...
-Stay Tuned...
+### ros_controller
+Ensure that proper [ros controller](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/main/ur_moveit_config/config/ros2_controllers.yaml) are loaded and matched with [moveit_controller](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/main/ur_moveit_config/config/controllers.yaml).
+
+### Adding ros2_topic_based_control plugin to [robot's xacro file](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/main/ur_robot_driver/urdf/ur.ros2_control.xacro)
+Match the topic names here to the topic names in isaac simulator
+```bash
+  <hardware>
+                <plugin>topic_based_ros2_control/TopicBasedSystem</plugin>
+                <param name="joint_commands_topic">/joint_commands</param>
+                <param name="joint_states_topic">/joint_states</param>
+                <param name="trigger_joint_command_threshold">0.001</param>
+                <param name="sum_wrapped_joint_states">true</param>
+      </hardware>
+bash
