@@ -69,12 +69,14 @@ https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
 
 ### Overall workflow:
 1) Run isaac sim and load UR10.usd from (Top-left -> Create -> Robots -> Asset Browser)
-2) You need to create an ActionGrasp and configure a few things (I followed this (https://youtu.be/pGje2slp6-s))
-3) Run the simulation in Isaac_sim and check if it publish appropiate topics
-4) launch moveit2 along with rviz, ros2_control, topi_based_ros2_control 
+2) You need to create an ActionGrasp and configure a few things (I followed [this](https://youtu.be/pGje2slp6-s)).
+3) Run the simulation in Isaac_sim and check if it publish appropiate topics (state publisher and command subscription)
+4) Launch moveit2 along with rviz, ros2_control, topi_based_ros2_control (explained next)
 
-For moveit part above, refer my code as an example and you need to do following changes:
-1) In /src/Universal_Robots_ROS2_Driver-humble/ur_moveit_config/ur_moveit_isaac.launch.py
+## Customizing default Moveit launch file
+
+## Moveit launch file
+To understand this, refer my code as an example and observe the changes done in moveit_launch file (ur_moveit.launch.py -> [ur_moveit_isaac.launch.py](/ur_moveit_config/ur_moveit_isaac.launch.py)):
 .
 .
 .
