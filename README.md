@@ -74,7 +74,8 @@ https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
 2) Run isaac sim and load UR10.usd from (Top-left -> Create -> Robots -> Asset Browser)
 3) You need to create an ActionGrasp and configure a few things (I followed [this](https://youtu.be/pGje2slp6-s)).
 4) Run the simulation in Isaac_sim and check if it publish appropiate topics (state publisher and command subscription)
-5) Launch moveit2 along with rviz, ros2_control, topi_based_ros2_control (explained next)
+5) In a separate terminal, source the ros and workspace environemnt as mentioned before
+6) Launch moveit2 along with rviz, ros2_control, topi_based_ros2_control (explained next)
    ```bash
    ros2 launch ur_moveit_config ur_moveit_isaac.launch.py ur_type:=ur10e use_fake_hardware:=false launch_rviz:=true
    ```
