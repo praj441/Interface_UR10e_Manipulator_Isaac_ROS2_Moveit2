@@ -134,4 +134,5 @@ Match the topic names here to the topic names in isaac simulator
 ```
 
 ### Demo
-<img src="assets/demo.gif" />
+Once everythin is setup, you can test the interface by planning any random path through rviz:
+<img src="assets/Demo.gif" />
