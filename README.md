@@ -109,30 +109,14 @@ To understand this, refer my code as an example and observe the changes done in 
         executable="spawner",
         arguments=["ur_arm_controller", "-c", "/controller_manager"],
     )
-
-
-    # Start the actual move_group node/action server
-    move_group_node = Node(
-        package="moveit_ros_move_group",
-        executable="move_group",
-        output="screen",
-        parameters=[
-            robot_description,
-            robot_description_semantic,
-            publish_robot_description_semantic,
-            robot_description_kinematics,
-            robot_description_planning,
-            ompl_planning_pipeline_config,
-            trajectory_execution,
-            moveit_controllers,
-            planning_scene_monitor_parameters,
-            {"use_sim_time": use_sim_time},
-            warehouse_ros_config,
-        ],
-    )
 ```
 
+(2) [Add newly added nodes to nodes_to_start list](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/1cac8b1761db8b1842bdfb8f49f192ee4f67c4e4/ur_moveit_config/launch/ur_moveit_isaac.launch.py#L305C5-L305C140)
+```bash
+nodes_to_start = [move_group_node, rviz_node, servo_node, ros2_control_node, joint_state_broadcaster_spawner,ur_arm_controller_spawner]
+```
 
+(3) Set [use_sim_time](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/1cac8b1761db8b1842bdfb8f49f192ee4f67c4e4/ur_moveit_config/launch/ur_moveit_isaac.launch.py#L410C14-L410C26) to true
 
 #### In progress...
 Stay Tuned...
