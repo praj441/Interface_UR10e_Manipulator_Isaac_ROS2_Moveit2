@@ -3,7 +3,7 @@
 In this repository, I will let you go through simulating a UR10e robot in Isaac Sim and then interface it with ROS2 (Humble) and MoveIt2.  
 The guidelines will help you simulate your own robot and perform the necessary customizations you need.
 
-<img src="assets/Demo.gif" width=800 />
+<img src="assets/intro.png" width=800 />
 
 ---
 
