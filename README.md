@@ -76,7 +76,7 @@ https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
 ## Customizing default Moveit launch file
 
 ## Moveit launch file
-To understand this, refer my code as an example and observe the changes done in moveit_launch file (ur_moveit.launch.py -> [ur_moveit_isaac.launch.py](blob/main/ur_moveit_config/launch/ur_moveit_isaac.launch.py)):
+To understand this, refer my code as an example and observe the changes done in moveit_launch file (ur_moveit.launch.py -> [ur_moveit_isaac.launch.py](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/main/ur_moveit_config/launch/ur_moveit_isaac.launch.py)):
 .
 .
 .
