@@ -78,7 +78,7 @@ This repository is the resultant modified Universal_Robots_ROS2_Driver package. 
 ## Moveit launch file
 To understand this, refer my code as an example and observe the changes done in moveit_launch file (ur_moveit.launch.py -> [ur_moveit_isaac.launch.py](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/main/ur_moveit_config/launch/ur_moveit_isaac.launch.py)):
 
-#### (1) [Add ros_control and related nodes] (https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/1cac8b1761db8b1842bdfb8f49f192ee4f67c4e4/ur_moveit_config/launch/ur_moveit_isaac.launch.py#L215C3-L264C6)
+(1) [Add ros_control and related nodes](https://github.com/praj441/Interface_UR10e_Manipulator_Isaac_ROS2_Moveit2/blob/1cac8b1761db8b1842bdfb8f49f192ee4f67c4e4/ur_moveit_config/launch/ur_moveit_isaac.launch.py#L215C3-L264C6)
 ```bash
   ros2_control_node = Node(
         package="controller_manager",
